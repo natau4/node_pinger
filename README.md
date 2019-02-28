@@ -1,19 +1,15 @@
-# NodePinger
+NodePinger is a very simple application that can
+* ping nodes at regular interval;
+* synchronize global node names known to the current node.
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `node_pinger` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:node_pinger, "~> 0.1.0"}
-  ]
-end
+The list of nodes should be specified in the config.
+```
+config: node_pinger, nodes: [:name@host]
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/node_pinger](https://hexdocs.pm/node_pinger).
-
+Intervals can be redefined in config (by default, ping is performed every second, synchronize global names is every 5 minutes)
+```
+config: node_pinger,
+   node_ping_interval: 1000,
+   global_sync_interval: 300_000
+```
