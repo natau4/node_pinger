@@ -13,7 +13,7 @@ defmodule NodePinger do
   end
 
   def handle_info(:ping, smth) do
-    Logger.info("Check nodes")
+    Logger.debug("Check nodes")
 
     ping()
     schedule()
